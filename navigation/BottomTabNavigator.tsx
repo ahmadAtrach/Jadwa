@@ -32,6 +32,13 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
+       {/* <BottomTab.Screen
+        name="Setting"
+        component={TabThreeNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      /> */}
     </BottomTab.Navigator>
   );
 }
@@ -71,3 +78,14 @@ function TabTwoNavigator() {
     </TabTwoStack.Navigator>
   );
 }
+// function TabThreeNavigator() {
+//   return (
+//     <TabTwoStack.Navigator>
+//       <TabTwoStack.Screen
+//         name="TabThree"
+//         component={TabTwoScreen}
+//         options={{ headerTitle: 'Tab Three Title' }}
+//       />
+//     </TabTwoStack.Navigator>
+//   );
+// }

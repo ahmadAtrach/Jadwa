@@ -17,6 +17,14 @@ export default function useCachedResources() {
           ...Ionicons.font,
           'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
         });
+        await Font.loadAsync({
+          ...Ionicons.font,
+          'righteous-regular': require('../assets/fonts/Righteous-Regular.ttf'),
+        });
+        await Font.loadAsync({
+          ...Ionicons.font,
+          'rubik': require('../assets/fonts/Rubik-Regular.ttf'),
+        });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         console.warn(e);
