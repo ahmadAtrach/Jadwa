@@ -10,6 +10,7 @@ import { RootStackParamList } from '../types';
 import BottomTabNavigator from './BottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
 import SectorsScreen from '../screens/SectorsScreen';
+import FormScreen from '../screens/formScreens/Personal_Info';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -33,7 +34,8 @@ function RootNavigator() {
     <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Info" component={InfoScreen} />
-       <Stack.Screen name="Sectors" component={SectorsScreen} />
+      <Stack.Screen name="Sectors" component={SectorsScreen} />
+      <Stack.Screen name="Form" component={FormScreen} />
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>

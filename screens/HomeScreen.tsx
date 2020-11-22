@@ -2,6 +2,7 @@ import React from "react";
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../types';
 import colors from "../constants/Colors";
+import {styles} from '../constants/Style';
 import {
   Text,
   StyleSheet,
@@ -48,27 +49,21 @@ function HomeScreen({
     </SafeAreaView>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor:colors.primary
-  },
-  image: {
-    flex: 1,
-    resizeMode: "cover",
-    flexDirection: "column-reverse",
-  },
-  text: {
-    fontSize: 42,
-    fontWeight: "bold",
-    textAlign: "left",
-  },
-  cus_button: {
-    alignItems: "center",
-    width: "100%",
-    marginBottom: 120,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     flexDirection: "column",
+//   },
+//   image: {
+//     flex: 1,
+//     resizeMode: "cover",
+//     flexDirection: "column-reverse",
+//   },
+//   cus_button: {
+//     alignItems: "center",
+//     width: "100%",
+//     marginBottom: 120,
+//   },
+// });
 
 export default HomeScreen;

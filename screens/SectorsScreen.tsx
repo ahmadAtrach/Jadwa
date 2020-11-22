@@ -1,112 +1,121 @@
 import React from "react";
-import colors from "../constants/Colors";
-import {Svg} from "expo";
-import {
-  Image,
-  Text,
-  StyleSheet,
-  View,
-  SafeAreaView,
-  ImageBackground,
-  TouchableHighlight,
-  Platform,
-} from "react-native";
-import { color } from "react-native-reanimated";
-function SectorsScreen() {
-     var progress =30;
+import {styles} from '../constants/Style';
+import {Image,Text,View,ScrollView,TouchableHighlight,} from "react-native";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../types";
+function SectorsScreen({ 
+  navigation,
+}:StackScreenProps<RootStackParamList, 'Form'>) {
     function onPressLearnMore() {
-        console.log("hahaha");
+        navigation.navigate('Form');
     }
     return (
-        <SafeAreaView style={styles.container}>
+        <ScrollView style={[styles.container]}>
             <View style={styles.progress_bar}></View>
             <View style={styles.center_container}><Text style={styles.title_text}>JADWA</Text></View>
-            <View style={[styles.flex,styles.w_80]}>
-                <View style={[styles.center_container]}><Text style={[styles.header_text,styles.mt_1]}>Choose the Sector</Text></View>
-                <View style={[styles.round,styles.mt_1]}><Text>O</Text></View>
+            <View style={[styles.center_container]}><Text style={[styles.header_text,styles.mt_1]}>Choose The Sector</Text></View>
+           
+            <View style={[styles.center_container,styles.sector]}>
+                <TouchableHighlight onPress={onPressLearnMore} style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Honey Manufacturing </Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </TouchableHighlight>
             </View>
-        </SafeAreaView>
+            <View style={[styles.center_container,styles.sector,styles.mt_1]}>
+                <View style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Farming</Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+             <View style={[styles.center_container,styles.sector,styles.mt_1]}>
+                <View style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Farming</Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+             <View style={[styles.center_container,styles.sector,styles.mt_1]}>
+                <View style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Farming</Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+             <View style={[styles.center_container,styles.sector,styles.mt_1]}>
+                <View style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Farming</Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+             <View style={[styles.center_container,styles.sector,styles.mt_1]}>
+                <View style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Farming</Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+             <View style={[styles.center_container,styles.sector,styles.mt_1]}>
+                <View style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Farming</Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+             <View style={[styles.center_container,styles.sector,styles.mt_1]}>
+                <View style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Farming</Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+             <View style={[styles.center_container,styles.sector,styles.mt_1]}>
+                <View style={[styles.sector,styles.bg_primary,styles.w_90,styles.rounded_borders_5, styles.mt_1]}>
+                    <View style={[styles.flex,styles.sector_child]}>
+                        <Image style={styles.sector_icon} source={require("../assets/pictures/sector_icon.png")}/>
+                        <View style={styles. p_1}>
+                            <Text style={styles.sector_title}>Farming</Text>
+                            <Text style={[styles.sector_paragraph,]} numberOfLines={3}>Lorem ipsum dolor  dolor um dolor  dolor Lo Lorem ipsum dolor sit amet consectetur sit amet consectetur amet consectetur amet consectetur</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+        
+        </ScrollView>
     );
     }
-const styles = StyleSheet.create({
-    flex:{
-        flex:1,
-        flexDirection:"row"
-    },
-    round:{
-        borderRadius : 1000,
-        height:72,
-        width:72,
-        backgroundColor:'red'
-    },
-    progress_bar:{
-    height:5,
-    backgroundColor:colors.primary,
-    width:'10%'
-    },
-    header_text:{
-    color: colors.primary,
-    fontFamily:'rubik',
-    fontSize:25
-    },
-    text_center:{
-    textAlign:"center"
-    },
-    mt_5:{
-    marginTop:"30%"
-    },
-    mt_1:{
-    marginTop:"5%"
-    },
-    w_80:{
-    width:"80%"
-    },
-    Info_pic:{
-    height :155,
-    width : 280
-    },
-    title_text :{
-    fontSize:17,
-    color : colors.secondary,
-    fontFamily:'righteous-regular'
-    },
-    container: {
-    marginTop: Platform.OS === "android"? 20 : 0,
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor:colors.white
-    },
-    center_container:{
-    flexDirection:"row",
-    alignContent:"center",
-    justifyContent:"center"
-    },
-    image: {
-    flex: 1,
-    resizeMode: "cover",
-    flexDirection: "column-reverse",
-    },
-    text: {
-    fontSize: 17,
-    fontWeight: "bold",
-    textAlign: "left",
-    },
-    cus_button: {
-    flex:1,
-    flexDirection:"column-reverse",
-    alignItems: "center",
-    width: "100%",
-    marginBottom: 120,
-    },
-    button_next:{
-    height: 75,
-    marginTop: 10,
-    width: 180,
-    backgroundColor: colors.primary,
-    borderRadius: 68,
-    justifyContent: "center",
-    alignItems: "center",
-    }
-});
-
 export default SectorsScreen;

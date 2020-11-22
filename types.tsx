@@ -4,6 +4,7 @@ export type RootStackParamList = {
   Info: undefined;
   Sectors: undefined;
   NotFound: undefined;
+  Form:undefined;
 };
 
 export type BottomTabParamList = {
