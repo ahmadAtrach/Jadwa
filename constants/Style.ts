@@ -2,6 +2,35 @@ import colors from './Colors';
 import {StyleSheet,Platform} from "react-native";
 import { block } from 'react-native-reanimated';
 export const  styles = StyleSheet.create({
+    ////////////////Testing Start//////////////|
+    containerStyle: {
+    flex: 1,
+  },
+ 
+  scrollViewStyle: {
+    flex: 1,
+ 
+    padding: 15,
+ 
+    justifyContent: 'center',
+  },
+ 
+  headingStyle: {
+    fontSize: 30,
+ 
+    textAlign: 'center',
+ 
+    marginBottom: 40,
+  },
+  ///////////////// Testing end//////////////////
+    wrapper: {
+    flex: 1,
+    marginTop: 150,
+  },
+  submitButton: {
+    paddingHorizontal: 10,
+    paddingTop: 20,
+  },
     d_block:{
         flex:1,
         flexDirection:"column",
@@ -66,21 +95,38 @@ export const  styles = StyleSheet.create({
     text_center:{
         textAlign:"center"
     },
+    /////////////////"Here are all margin"///////////////// 
     mt_5:{
         marginTop:"30%"
     },
     mt_1:{
         marginTop:"5%"
     },
+    ml_r_1:{
+        marginLeft:"5%",
+        marginRight:"5%"
+    },
+    //////////////////////////////////////////////////////
+
+    /////////////////"Here are all padding"////////////////
+
     p_1:{
         padding:"1%"
     },
+
+    //////////////////////////////////////////////////////
+
+    //////////"Here are all width containers"////////////
+
     w_80:{
         width:"80%"
     },
     w_90:{
         width:'90%'
     },
+
+    //////////////////////////////////////////////////////
+    
     Info_pic:{
         height :155,
         width : 280
@@ -96,8 +142,29 @@ export const  styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor:colors.white
     },
+    //////////////////"here are the colors"///////////////
+
+    primary_color:{
+        color:colors.primary
+    },
+    secondary_color:{
+        color:colors.secondary
+    },
+    black_color:{
+        color:colors.black
+    },
+    white_color:{
+        color:colors.white
+    },
+    
+    //////////////////////////////////////////////////////
     center_container:{
         flexDirection:"row",
+        alignContent:"center",
+        justifyContent:"center"
+    },
+    center_col_container:{
+        flexDirection:"column",
         alignContent:"center",
         justifyContent:"center"
     },

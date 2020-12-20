@@ -5,9 +5,9 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider} from '@ui-kitten/components';
+import { ApplicationProvider, IconRegistry} from '@ui-kitten/components';
 import theme from './assets/Theme/custom-theme.json';
-import { Layout } from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
@@ -16,12 +16,15 @@ export default function App() {
     return null;
   } else {
     return (
-      <ApplicationProvider {...eva} theme={{...eva.light, ...theme}}>
-        <SafeAreaProvider>
-          <Navigation colorScheme={colorScheme} />
-          <StatusBar />
-        </SafeAreaProvider>
-      </ApplicationProvider>
+      <>
+       <IconRegistry icons={EvaIconsPack} />
+        <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
+          <SafeAreaProvider>
+            <Navigation colorScheme={colorScheme} />
+            <StatusBar />
+          </SafeAreaProvider>
+        </ApplicationProvider>
+      </>
     );
   }
 }

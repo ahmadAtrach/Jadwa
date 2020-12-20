@@ -23,9 +23,15 @@ const CalendarIcon = (props:any) => (
 function FormScreen({ 
   navigation,
 }:StackScreenProps<RootStackParamList, 'Info'>) {
-  const now = new Date();
-  const min:Date = new Date(now.getFullYear()-100, now.getMonth(), now.getDate() );
-  
+
+  const formik = useFormik({
+     initialValues: {
+       email: '',
+     },
+     onSubmit: values => {
+       alert(JSON.stringify(values, null, 2));
+     },
+   });
   const [name, setValue] = React.useState('');
   const [date, setDate] = React.useState(new Date());
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -41,18 +47,7 @@ function FormScreen({
     Alert.alert("Error", error.message || "Something went wrong...");
   }
 };
-let personal_info= {
-    name : "",
-    age: 0,
-    gender: "",
-    martial_status: "",
-    number_of_children : 0,
-    level_of_education: "",
-    major: "",
-    university: "",
-    industry: "",
-    years_of_experience:0
-};
+
 const martial_status = [
   'Developer',
   'Designer',
@@ -67,31 +62,27 @@ const martial_status = [
             <Layout style={[styles.center_container,styles.d_block,styles.ml_r_1]}>
             
               <Layout style={[styles.center_col_container]}>
-            {/* this is name field  */}
-                <Text style={[styles.mt_1,styles.secondary_color]}>
-                    Full Name
-                </Text>
-                <Input
-                  value={personal_info.name}
-                  onChangeText={nextValue => setValue(nextValue)}
-                />
-            {/* name field end  */}
-              <Text style={[styles.mt_1,styles.secondary_color]}>
+              <Text style={[styles.mt_1,styles.primary_color]}>
+                  Full Name
+              </Text>
+              <Input
+                onChangeText={nextValue => setValue(nextValue)}
+              />
+              <Text style={[styles.mt_1,styles.primary_color]}>
                   Your Birthday
               </Text>
               <Datepicker
               placeholder='Pick Date'
               date={date}
-              min={min}
-              max={now}
               onSelect={nextDate => setDate(nextDate)}
               accessoryRight={CalendarIcon}
               />
               <React.Fragment>
 
-                <Text style={[styles.mt_1,styles.secondary_color]}>
-                  {`Gender: ${now.getFullYear() - date.getUTCFullYear() }`}
+                <Text style={[styles.mt_1,styles.primary_color]}>
+                  Select Your Gender:
                 </Text>
+
                 <RadioGroup
                   selectedIndex={selectedIndex}
                   onChange={gender => setSelectedIndex(gender)}>
@@ -103,7 +94,7 @@ const martial_status = [
               <Text style={styles.mt_1}>
                 {`Select Your status: ${selectedIndex == 0?  'Male':'Female' }`}
               </Text>
-              {/* <Select
+              <Select
                 style={styles.mt_1}
                 selectedIndex={selectemartial}
                 onSelect={status => setIndexmartial(status)}>
@@ -111,12 +102,12 @@ const martial_status = [
                 <SelectItem title='Married'/>
                 <SelectItem title='Divorced'/>
                 <SelectItem title='Widowed'/>
-              </Select> */}
+              </Select>
               <Layout style={[styles.center_container,styles.mt_5]}>
-               <Button
+               {/* <Button
                 title="Generate a PDF file"
-                onPress={createPdf(simpleHtml(personal_info))}
-              />
+                onPress={createPdf(simpleHtml(namee,selectedIndex))}
+              /> */}
               </Layout>
               </Layout>
             </Layout>
