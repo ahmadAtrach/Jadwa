@@ -1,10 +1,11 @@
 export type RootStackParamList = {
+  OtherIncome: undefined;
   Root: undefined;
   Home: undefined;
   Info: undefined;
   Sectors: undefined;
   NotFound: undefined;
-  Form:undefined;
+  Form: undefined;
 };
 
 export type BottomTabParamList = {

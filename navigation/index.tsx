@@ -11,6 +11,7 @@ import BottomTabNavigator from './BottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
 import SectorsScreen from '../screens/SectorsScreen';
 import FormScreen from '../screens/formScreens/Personal_Info';
+import OtherIncome from '../screens/formScreens/Other_Income';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -31,13 +32,21 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
 const Stack = createStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{ headerShown: false }}
+    >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Info" component={InfoScreen} />
       <Stack.Screen name="Sectors" component={SectorsScreen} />
       <Stack.Screen name="Form" component={FormScreen} />
+      <Stack.Screen name="OtherIncome" component={OtherIncome} />
       <Stack.Screen name="Root" component={BottomTabNavigator} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen
+        name="NotFound"
+        component={NotFoundScreen}
+        options={{ title: "Oops!" }}
+      />
     </Stack.Navigator>
   );
 }

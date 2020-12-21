@@ -2,6 +2,9 @@ import colors from './Colors';
 import {StyleSheet,Platform} from "react-native";
 import { block } from 'react-native-reanimated';
 export const  styles = StyleSheet.create({
+    fixed_Top:{
+        top:0
+    },
     ////////////////Testing Start//////////////|
     containerStyle: {
     flex: 1,
@@ -87,6 +90,11 @@ export const  styles = StyleSheet.create({
         backgroundColor:colors.primary,
         width:'20%'
     },
+    progress_bar_3:{
+        height:5,
+        backgroundColor:colors.primary,
+        width:'25%'
+    },
     header_text:{
         color: colors.primary,
         fontFamily:'rubik',
@@ -101,6 +109,9 @@ export const  styles = StyleSheet.create({
     },
     mt_1:{
         marginTop:"5%"
+    },
+    mb_1:{
+        marginBottom:"5%"
     },
     ml_r_1:{
         marginLeft:"5%",
@@ -137,7 +148,7 @@ export const  styles = StyleSheet.create({
         fontFamily:'righteous-regular'
     },
     container: {
-        marginTop: Platform.OS === "android"? 25 : 0,
+        marginTop: Platform.OS === "android"? 25 : 50,
         flex: 1,
         flexDirection: "column",
         backgroundColor:colors.white
