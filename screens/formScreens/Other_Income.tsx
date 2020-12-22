@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styles } from "../../constants/Style";
 
-import { ScrollView, TextInput, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import {
   Button,
   Input,
@@ -11,31 +11,24 @@ import {
   Icon,
   RadioGroup,
   Radio,
-  Select,
-  SelectItem,
-  IndexPath,
 } from "@ui-kitten/components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";
-
-import { createAndSavePDF } from "../../hooks/helper";
-import { Alert } from "react-native";
-import { simpleHtml } from "../../hooks/html";
 const CalendarIcon = (props: any) => <Icon {...props} name="calendar" />;
 
 const StarIcon = (props: any) => <Icon {...props} name="arrow-forward" />;
 function OtherIncome({
   navigation,
-}: StackScreenProps<RootStackParamList, "OtherIncome">) {
+}: StackScreenProps<RootStackParamList, "AboutTheBusiness">) {
   function onPressLearnMore() {
-    navigation.navigate("OtherIncome");
+    navigation.navigate("AboutTheBusiness");
   }
   let other_income = {
     income: "",
     is_employed: false,
     employemnt_place: "",
     employemnt_job: "",
-    empoyment_date: new Date(),
+    employemnt_date: new Date(),
     employemnt_salary: "",
     is_side_business: false,
     business_info: "",
@@ -218,6 +211,7 @@ function OtherIncome({
                       }
                     />
                     {/*  job info field end  */}
+                    
                   </View>
                 )}
               </View>

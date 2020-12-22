@@ -95,6 +95,11 @@ export const  styles = StyleSheet.create({
         backgroundColor:colors.primary,
         width:'25%'
     },
+     progress_bar_4:{
+        height:5,
+        backgroundColor:colors.primary,
+        width:'30%'
+    },
     header_text:{
         color: colors.primary,
         fontFamily:'rubik',

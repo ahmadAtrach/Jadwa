@@ -12,6 +12,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 import SectorsScreen from '../screens/SectorsScreen';
 import FormScreen from '../screens/formScreens/Personal_Info';
 import OtherIncome from '../screens/formScreens/Other_Income';
+import AboutTheBusiness from '../screens/formScreens/About_The_Business';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -41,6 +42,7 @@ function RootNavigator() {
       <Stack.Screen name="Sectors" component={SectorsScreen} />
       <Stack.Screen name="Form" component={FormScreen} />
       <Stack.Screen name="OtherIncome" component={OtherIncome} />
+      <Stack.Screen name="AboutTheBusiness" component={AboutTheBusiness} />
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen
         name="NotFound"
