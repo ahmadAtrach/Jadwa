@@ -216,7 +216,7 @@ function AboutTheBusiness({
             <Button
               style={styles.mt_1}
               size="medium"
-              status="info"
+              status="warning"
               accessoryRight={PlusIcon}
               onPress={addEquipments}
             >
@@ -226,7 +226,7 @@ function AboutTheBusiness({
             {/* equipments field end  */}
 
             <Layout style={[styles.center_col_container]}>
-              <Layout style={[styles.center_container, styles.mt_1]}>
+              <Layout style={[styles.center_container, styles.mt_1,styles.mb_1]}>
                 <Button
                   size="medium"
                   status="info"

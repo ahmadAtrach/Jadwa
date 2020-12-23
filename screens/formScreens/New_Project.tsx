@@ -16,11 +16,11 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";
 
 const StarIcon = (props: any) => <Icon {...props} name="arrow-forward" />;
-function AboutThePremises({
+function NewProject({
   navigation,
-}: StackScreenProps<RootStackParamList, "NewProject">) {
+}: StackScreenProps<RootStackParamList, "AboutTheBusiness">) {
   function onPressLearnMore() {
-    navigation.navigate("NewProject");
+    navigation.navigate("AboutTheBusiness");
   }
   const premises_types = [
     "Fully Owned",
@@ -33,15 +33,15 @@ function AboutThePremises({
     plot_number: 0,
     plot_area: 0,
     premises_ownership: "",
-    number_of_shared:0,
-    monthly_rent:0,
-    rent_period:"",
-    land_surrounding:"",
-    land_soil_description:"",
-    land_nature_description:"" 
+    number_of_shared: 0,
+    monthly_rent: 0,
+    rent_period: "",
+    land_surrounding: "",
+    land_soil_description: "",
+    land_nature_description: "",
   };
-  //note that pt stand for plot and pre stand for premises 
-  //declration form variables 
+  //note that pt stand for plot and pre stand for premises
+  //declration form variables
   const [location, setLocation] = React.useState("");
   const [ptNumber, setPtNumber] = React.useState(0);
   const [ptArea, setPtArea] = React.useState(0);
@@ -55,7 +55,6 @@ function AboutThePremises({
   const premises_types_Value = premises_types[pretOwnership.row];
   const renderOption = (title: any) => <SelectItem key={title} title={title} />;
 
-
   return (
     <View style={styles.container}>
       <View style={styles.fixed_Top}>
@@ -65,7 +64,7 @@ function AboutThePremises({
         </Layout>
         <Layout style={[styles.center_container]}>
           <Text style={[styles.header_text, styles.mt_1]}>
-            About The Premises
+            New Project
           </Text>
         </Layout>
       </View>
@@ -194,4 +193,4 @@ function AboutThePremises({
   );
 }
 
-export default AboutThePremises;
+export default NewProject;

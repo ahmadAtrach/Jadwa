@@ -14,6 +14,7 @@ import FormScreen from '../screens/formScreens/Personal_Info';
 import OtherIncome from '../screens/formScreens/Other_Income';
 import AboutTheBusiness from '../screens/formScreens/About_The_Business';
 import AboutThePermises from '../screens/formScreens/About_The_Premises';
+import NewProject from '../screens/formScreens/New_Project';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -45,6 +46,7 @@ function RootNavigator() {
       <Stack.Screen name="OtherIncome" component={OtherIncome} />
       <Stack.Screen name="AboutTheBusiness" component={AboutTheBusiness} />
       <Stack.Screen name="AboutThePremises" component={AboutThePermises} />
+      <Stack.Screen name="NewProject" component={NewProject} />
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen
         name="NotFound"

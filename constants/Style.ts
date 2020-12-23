@@ -121,7 +121,7 @@ export const  styles = StyleSheet.create({
         marginTop:"5%"
     },
     mb_1:{
-        marginBottom:"5%"
+        marginBottom:"40%"
     },
     ml_r_1:{
         marginLeft:"5%",
