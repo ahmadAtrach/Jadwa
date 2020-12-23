@@ -105,6 +105,11 @@ export const  styles = StyleSheet.create({
         fontFamily:'rubik',
         fontSize:25
     },
+    header_text_3:{
+        color: colors.secondary,
+        fontFamily:'rubik',
+        fontSize:18
+    },
     text_center:{
         textAlign:"center"
     },

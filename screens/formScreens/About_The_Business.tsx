@@ -18,18 +18,19 @@ const CalendarIcon = (props: any) => <Icon {...props} name="calendar" />;
 const PlusIcon = (props: any) => <Icon {...props} name="plus" />;
 const MinusIcon = (props: any) => <Icon {...props} name="minus" />;
 const data = new Array(1).fill({
-  title: "Item",
-  description: "Description for Item",
+  title: "Equipment Name",
+  description: "Quantity",
 });
 const StarIcon = (props: any) => <Icon {...props} name="arrow-forward" />;
 function AboutTheBusiness({
   navigation,
-}: StackScreenProps<RootStackParamList, "AboutTheBusiness">) {
+}: StackScreenProps<RootStackParamList, "AboutThePremises">) {
   function onPressLearnMore() {
-    navigation.navigate("AboutTheBusiness");
+    navigation.navigate("AboutThePremises");
   }
   const renderItem = ({ item, index }: any) => (
     <ListItem
+      key= {index}
       title={`${item.title}`}
       description={`${item.description}`}
       accessoryRight={() => renderItemAccessory(index)}
@@ -58,6 +59,7 @@ function AboutTheBusiness({
     business_location: "",
     business_duration: 0,
     business_average_salary: "",
+    equipments : new Array()
   };
   const now = new Date();
   const min: Date = new Date(
@@ -74,16 +76,28 @@ function AboutTheBusiness({
   const [employeeJob, setEmployeeJob] = React.useState("");
   const [employeeSalary, setemployeeSalary] = React.useState("");
   const [equipmentName, setEquipmentName] = React.useState("");
+  const [equipmentQuantity, setEquipmentQuantity] = React.useState(0);
   const [equipmentData, setEquipmentData] = React.useState(data);
   const [switcherData, setSwitcherData] = React.useState(true);
   const [hourCounter, setHourCounter] = React.useState(0);
   const renderItemAccessory = (props: any) => (
-    <Button
-      onPress={() => deleteData(props)}
-      accessoryRight={MinusIcon}
-      size="tiny"
-    ></Button>
+    <View>
+      {(props != 0 ? true : false) && (
+      <Button
+        onPress={() => deleteEquipmentRow(props)}
+        accessoryRight={MinusIcon}
+        size="tiny"
+      ></Button>
+      )}
+    </View>
   );
+  //  const renderItemAccessory = (props: any) => (
+  //    <Button
+  //      onPress={() => deleteEquipmentRow(props)}
+  //      accessoryRight={MinusIcon}
+  //      size="tiny"
+  //    ></Button>
+  //  );
   
   return (
     <View style={styles.container}>
@@ -116,13 +130,13 @@ function AboutTheBusiness({
             />
             {/* business info  field end  */}
             {/* this is brand name field   */}
-                    <Text style={[styles.mt_1, styles.secondary_color]}>
-                      What is the Brand Name?
-                    </Text>
-                    <Input
-                      placeholder="Brand Name"
-                      onChangeText={(name) => setBrandName(name)}
-                    />
+            <Text style={[styles.mt_1, styles.secondary_color]}>
+              What is the Brand Name?
+            </Text>
+            <Input
+              placeholder="Brand Name"
+              onChangeText={(name) => setBrandName(name)}
+            />
             {/* brand name field end  */}
             {/* this is Date of establishment field   */}
             <Text style={[styles.mt_1, styles.secondary_color]}>
@@ -167,8 +181,14 @@ function AboutTheBusiness({
             />
             {/* Full-timers field end  */}
 
-            {/* this is test field   */}
-            <Text style={[styles.mt_1, styles.secondary_color]}>
+            {/* this is equipments filed field   */}
+            <Text
+              style={[
+                styles.mt_1,
+                styles.secondary_color,
+                styles.header_text_3,
+              ]}
+            >
               Add Equipments
             </Text>
             <List
@@ -176,28 +196,40 @@ function AboutTheBusiness({
               ItemSeparatorComponent={Divider}
               renderItem={renderItem}
             />
+            <Text style={[styles.mt_1, styles.secondary_color]}>
+              Equipments name
+            </Text>
             <Input
-              value={!switcherData ? equipmentName : ""}
               placeholder="Equipment name"
               onChangeText={(name) => setEquipmentName(name)}
+            />
+            <Text style={[styles.mt_1, styles.secondary_color]}>
+              Equipments Quantity
+            </Text>
+            <Input
+              keyboardType="numeric"
+              placeholder="Equipment Quantity"
+              onChangeText={(quantity) =>
+                setEquipmentQuantity(parseInt(quantity))
+              }
             />
             <Button
               style={styles.mt_1}
               size="medium"
-              status="primary"
+              status="info"
               accessoryRight={PlusIcon}
               onPress={addEquipments}
             >
               Add
             </Button>
 
-            {/* test field end  */}
+            {/* equipments field end  */}
 
             <Layout style={[styles.center_col_container]}>
-              <Layout style={[styles.center_container, styles.mt_5]}>
+              <Layout style={[styles.center_container, styles.mt_1]}>
                 <Button
                   size="medium"
-                  status="primary"
+                  status="info"
                   accessoryRight={StarIcon}
                   onPress={onPressLearnMore}
                 >
@@ -210,15 +242,17 @@ function AboutTheBusiness({
       </KeyboardAvoidingView>
     </View>
   );
-  function deleteData (index:any){
-    data.splice(index, data.length-1)
+  function deleteEquipmentRow (index:any){
+    setSwitcherData(true);
+    data.splice(index, 1)
+    setEquipmentData(data);
     console.log(index);
   }
   function addEquipments() {
      let newData = data;
      let equipment = {
        title: equipmentName,
-       description: "Description for Item",
+       description: equipmentQuantity,
      };
      newData.push(equipment);
      setSwitcherData(true);

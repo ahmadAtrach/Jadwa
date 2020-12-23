@@ -193,7 +193,7 @@ function FormScreen({
           <Layout style={[styles.center_container, styles.mt_1, styles.mb_1]}>
             <Button
               size="medium"
-              status="primary"
+              status="info"
               accessoryRight={StarIcon}
               onPress={onPressLearnMore}
             >

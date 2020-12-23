@@ -219,7 +219,7 @@ function OtherIncome({
             <Layout style={[styles.center_container, styles.mt_5]}>
               <Button
                 size="medium"
-                status="primary"
+                status="info"
                 accessoryRight={StarIcon}
                 onPress={onPressLearnMore}
               >
