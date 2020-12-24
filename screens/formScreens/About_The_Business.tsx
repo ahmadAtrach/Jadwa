@@ -30,7 +30,7 @@ function AboutTheBusiness({
   }
   const renderItem = ({ item, index }: any) => (
     <ListItem
-      key= {index}
+      key={index}
       title={`${item.title}`}
       description={`${item.description}`}
       accessoryRight={() => renderItemAccessory(index)}
@@ -59,7 +59,7 @@ function AboutTheBusiness({
     business_location: "",
     business_duration: 0,
     business_average_salary: "",
-    equipments : new Array()
+    equipments: new Array(),
   };
   const now = new Date();
   const min: Date = new Date(
@@ -67,6 +67,7 @@ function AboutTheBusiness({
     now.getMonth(),
     now.getDate()
   );
+  //declration form variables
   const [businessInfo, setBusinessInfo] = React.useState("");
   const [brandName, setBrandName] = React.useState("");
   const [establishmentDate, setEstablishmentDate] = React.useState(new Date());
@@ -83,22 +84,15 @@ function AboutTheBusiness({
   const renderItemAccessory = (props: any) => (
     <View>
       {(props != 0 ? true : false) && (
-      <Button
-        onPress={() => deleteEquipmentRow(props)}
-        accessoryRight={MinusIcon}
-        size="tiny"
-      ></Button>
+        <Button
+          onPress={() => deleteEquipmentRow(props)}
+          accessoryRight={MinusIcon}
+          size="tiny"
+        ></Button>
       )}
     </View>
   );
-  //  const renderItemAccessory = (props: any) => (
-  //    <Button
-  //      onPress={() => deleteEquipmentRow(props)}
-  //      accessoryRight={MinusIcon}
-  //      size="tiny"
-  //    ></Button>
-  //  );
-  
+
   return (
     <View style={styles.container}>
       <View style={styles.fixed_Top}>
@@ -226,7 +220,9 @@ function AboutTheBusiness({
             {/* equipments field end  */}
 
             <Layout style={[styles.center_col_container]}>
-              <Layout style={[styles.center_container, styles.mt_1,styles.mb_1]}>
+              <Layout
+                style={[styles.center_container, styles.mt_1, styles.mb_1]}
+              >
                 <Button
                   size="medium"
                   status="info"
@@ -242,31 +238,29 @@ function AboutTheBusiness({
       </KeyboardAvoidingView>
     </View>
   );
-  function deleteEquipmentRow (index:any){
+  function deleteEquipmentRow(index: any) {
     setSwitcherData(true);
-    data.splice(index, 1)
+    data.splice(index, 1);
     setEquipmentData(data);
     console.log(index);
   }
   function addEquipments() {
-     let newData = data;
-     let equipment = {
-       title: equipmentName,
-       description: equipmentQuantity,
-     };
-     newData.push(equipment);
-     setSwitcherData(true);
-     setEquipmentData(newData);  
+    let newData = data;
+    let equipment = {
+      title: equipmentName,
+      description: equipmentQuantity,
+    };
+    newData.push(equipment);
+    setSwitcherData(true);
+    setEquipmentData(newData);
   }
-  function listData(){
-    if(switcherData==true){
+  function listData() {
+    if (switcherData == true) {
       setSwitcherData(false);
       return equipmentData;
-    }
-    else {
+    } else {
       return data;
     }
-    
   }
 }
 

@@ -59,7 +59,7 @@ function AboutThePremises({
   return (
     <View style={styles.container}>
       <View style={styles.fixed_Top}>
-        <Layout style={styles.progress_bar_3}></Layout>
+        <Layout style={styles.progress_bar_5}></Layout>
         <Layout style={styles.center_container}>
           <Text style={styles.title_text}>JADWA</Text>
         </Layout>

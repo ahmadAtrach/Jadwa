@@ -15,6 +15,8 @@ import OtherIncome from '../screens/formScreens/Other_Income';
 import AboutTheBusiness from '../screens/formScreens/About_The_Business';
 import AboutThePermises from '../screens/formScreens/About_The_Premises';
 import NewProject from '../screens/formScreens/New_Project';
+import Productivity from '../screens/formScreens/Productivity';
+import MarketAnalysis from '../screens/formScreens/Market_Analysis';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -36,7 +38,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="MarketAnalysis"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
@@ -47,6 +49,8 @@ function RootNavigator() {
       <Stack.Screen name="AboutTheBusiness" component={AboutTheBusiness} />
       <Stack.Screen name="AboutThePremises" component={AboutThePermises} />
       <Stack.Screen name="NewProject" component={NewProject} />
+      <Stack.Screen name="Productivity" component={Productivity} />
+      <Stack.Screen name="MarketAnalysis" component={MarketAnalysis} />
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen
         name="NotFound"

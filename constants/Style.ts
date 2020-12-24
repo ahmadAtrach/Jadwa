@@ -83,22 +83,42 @@ export const  styles = StyleSheet.create({
     progress_bar:{
         height:5,
         backgroundColor:colors.primary,
-        width:'10%'
+        width:'5%'
     },
     progress_bar_2:{
         height:5,
         backgroundColor:colors.primary,
-        width:'20%'
+        width:'10%'
     },
     progress_bar_3:{
         height:5,
         backgroundColor:colors.primary,
-        width:'25%'
+        width:'20%'
     },
-     progress_bar_4:{
+    progress_bar_4:{
         height:5,
         backgroundColor:colors.primary,
         width:'30%'
+    },
+    progress_bar_5:{
+        height:5,
+        backgroundColor:colors.primary,
+        width:'40%'
+    },
+    progress_bar_6:{
+        height:5,
+        backgroundColor:colors.primary,
+        width:'50%'
+    },
+    progress_bar_7:{
+        height:5,
+        backgroundColor:colors.primary,
+        width:'60%'
+    },
+    progress_bar_8:{
+        height:5,
+        backgroundColor:colors.primary,
+        width:'70%'
     },
     header_text:{
         color: colors.primary,

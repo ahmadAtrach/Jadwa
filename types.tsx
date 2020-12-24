@@ -9,6 +9,8 @@ export type RootStackParamList = {
   AboutTheBusiness: undefined;
   AboutThePremises: undefined;
   NewProject: undefined;
+  Productivity: undefined;
+  MarketAnalysis:undefined;
 };
 
 export type BottomTabParamList = {

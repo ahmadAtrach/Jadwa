@@ -11,61 +11,52 @@ import {
   IndexPath,
   Select,
   SelectItem,
+  RadioGroup,
+  Radio,
 } from "@ui-kitten/components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";
+import { TapGestureHandler } from "react-native-gesture-handler";
 
 const StarIcon = (props: any) => <Icon {...props} name="arrow-forward" />;
 function NewProject({
   navigation,
-}: StackScreenProps<RootStackParamList, "AboutTheBusiness">) {
+}: StackScreenProps<RootStackParamList, "Productivity">) {
   function onPressLearnMore() {
-    navigation.navigate("AboutTheBusiness");
+    navigation.navigate("Productivity");
   }
-  const premises_types = [
-    "Fully Owned",
-    "Partially Owned",
-    "Rented",
-    "Indulgence",
-  ];
+  const grace_period = ["0", "6", "12", "18", "24", "30", "36"];
+  // inv here stand for investment
   let premises = {
-    location: "",
-    plot_number: 0,
-    plot_area: 0,
-    premises_ownership: "",
-    number_of_shared: 0,
-    monthly_rent: 0,
-    rent_period: "",
-    land_surrounding: "",
-    land_soil_description: "",
-    land_nature_description: "",
+    inv: 0,
+    nature_of_project: "",
+    inv_term: 0,
+    grace_period: "",
+    project_contributing: 0,
+    contributing_amount: "",
+    contributing_covering: "",
   };
-  //note that pt stand for plot and pre stand for premises
   //declration form variables
-  const [location, setLocation] = React.useState("");
-  const [ptNumber, setPtNumber] = React.useState(0);
-  const [ptArea, setPtArea] = React.useState(0);
-  const [pretOwnership, setPreOwnership] = React.useState(new IndexPath(0));
-  const [numberOfSHares, setNumberOfSHares] = React.useState(0);
-  const [monthlyRent, setMonthlyRent] = React.useState(0);
-  const [rentPeriod, setRentPeriod] = React.useState("");
-  const [landSurrounding, setLandSurrounding] = React.useState("");
-  const [landSoilDescription, setLandSoilDescription] = React.useState("");
-  const [landNatureDescription, setLandNatureDescription] = React.useState("");
-  const premises_types_Value = premises_types[pretOwnership.row];
+  const [inv, setInv] = React.useState(0);
+  const [natureOfProject, setNatureOfProject] = React.useState("");
+  const [invTerm, setInvTerm] = React.useState(0);
+  const [gracePeriod, setGracePeriod] = React.useState(new IndexPath(0));
+  const [projectContributing, setProjectContributing] = React.useState(0);
+  const [contributingAmount, setContributingAmount] = React.useState("");
+  const [contributingCovering, setontributingCovering] = React.useState("");
+  const [isContributing, setIsContributing] = React.useState(false);
+  const grace_period_value = grace_period[gracePeriod.row];
   const renderOption = (title: any) => <SelectItem key={title} title={title} />;
 
   return (
     <View style={styles.container}>
       <View style={styles.fixed_Top}>
-        <Layout style={styles.progress_bar_3}></Layout>
+        <Layout style={styles.progress_bar_6}></Layout>
         <Layout style={styles.center_container}>
           <Text style={styles.title_text}>JADWA</Text>
         </Layout>
         <Layout style={[styles.center_container]}>
-          <Text style={[styles.header_text, styles.mt_1]}>
-            New Project
-          </Text>
+          <Text style={[styles.header_text, styles.mt_1]}>New Project</Text>
         </Layout>
       </View>
       <ScrollView>
@@ -73,109 +64,85 @@ function NewProject({
           style={[styles.center_container, styles.d_block, styles.ml_r_1]}
         >
           <Layout style={[styles.center_col_container]}>
-            {/* this is Loaction field  */}
-            <Text style={[styles.mt_1, styles.secondary_color]}>Loaction</Text>
-            <Input
-              placeholder="Location"
-              onChangeText={(location) => setLocation(location)}
-            />
-            {/* Loaction field end  */}
-            {/* this is Plot Number field  */}
+            {/* this is Investment Needed field  */}
             <Text style={[styles.mt_1, styles.secondary_color]}>
-              Plot Number
+              Investment Needed
             </Text>
             <Input
-              placeholder="Plot Number"
+              placeholder="Investment Needed"
               keyboardType="numeric"
-              onChangeText={(plotNumber) => setPtNumber(parseInt(plotNumber))}
+              onChangeText={(investment) => setInv(parseInt(investment))}
             />
-            {/* Plot Number field end  */}
-            {/* this is Plot Area field  */}
+            {/* Investment Neededfield end  */}
+            {/* this is Nature of Project field  */}
             <Text style={[styles.mt_1, styles.secondary_color]}>
-              Plot Area in sqm
+              Nature of Project
             </Text>
             <Input
-              placeholder="Plot Area"
-              keyboardType="numeric"
-              onChangeText={(plotArea) => setPtNumber(parseInt(plotArea))}
+              placeholder="Nature of Project"
+              onChangeText={(nature) => setNatureOfProject(nature)}
             />
-            {/* Plot Plot Area field end  */}
+            {/* Nature of Project field end  */}
+            {/* this is Investment Term field  */}
+            <Text style={[styles.mt_1, styles.secondary_color]}>
+              Investment Term
+            </Text>
+            <Input
+              placeholder="Investment Term"
+              keyboardType="numeric"
+              onChangeText={(investment) => setInvTerm(parseInt(investment))}
+            />
+            {/* Investment Term end  */}
             {/* this premises ownership  field */}
             <Text style={[styles.mt_1, styles.secondary_color]}>
               Level of Education
             </Text>
             <Select
-              value={premises_types_Value}
-              selectedIndex={pretOwnership}
-              onSelect={(index) => setPreOwnership(index)}
+              value={grace_period_value}
+              selectedIndex={gracePeriod}
+              onSelect={(index) => setGracePeriod(index)}
             >
-              {premises_types.map(renderOption)}
+              {grace_period.map(renderOption)}
             </Select>
             {/* premises ownership field end  */}
-            {(premises_types_Value == "Partially Owned" ? true : false) && (
+            {/* this is contributing to the project field  */}
+            <React.Fragment>
+              <Text style={[styles.mt_1, styles.secondary_color]}>
+                Are you contributing to the project?
+              </Text>
+              <RadioGroup
+                selectedIndex={projectContributing}
+                onChange={(countributnig) =>
+                  setProjectContributing(countributnig)
+                }
+              >
+                <Radio status="primary">Yes</Radio>
+                <Radio status="primary">No</Radio>
+              </RadioGroup>
+            </React.Fragment>
+            {/* contributing to the project filed end  */}
+            {(projectContributing == 0 ? true : false) && (
               <View>
-                {/* this is Number of Shares field  */}
+                {/* this is Amount of Your Contribution? field  */}
                 <Text style={[styles.mt_1, styles.secondary_color]}>
-                  Number of Shares
+                  What is the amount of your contribution?
                 </Text>
                 <Input
-                  placeholder="Number of Shares"
-                  keyboardType="numeric"
-                  onChangeText={(shares) => setNumberOfSHares(parseInt(shares))}
+                  placeholder="Amount of Your Contribution? "
+                  onChangeText={(amount) => setContributingAmount(amount)}
                 />
-                {/* Number of Shares field end  */}
+                {/* Amount of Your Contribution? field end  */}
+                {/* this is Contribution Covering field  */}
+                <Text style={[styles.mt_1, styles.secondary_color]}>
+                  What is your own contribution covering?
+                </Text>
+                <Input
+                  placeholder="Contribution Covering"
+                  onChangeText={(covering) => setontributingCovering(covering)}
+                />
+                {/* Contribution Covering field end  */}
               </View>
             )}
-            {(premises_types_Value == "Rented" ? true : false) && (
-              <View>
-                {/* this is monthly rent field  */}
-                <Text style={[styles.mt_1, styles.secondary_color]}>
-                  Monthly rent fees in $$
-                </Text>
-                <Input
-                  placeholder="monthly rent fees in $$"
-                  keyboardType="numeric"
-                  onChangeText={(fees) => setMonthlyRent(parseInt(fees))}
-                />
-                {/* monthly rent field end  */}
-                {/* this is rent period field  */}
-                <Text style={[styles.mt_1, styles.secondary_color]}>
-                  Rent period
-                </Text>
-                <Input
-                  placeholder="Rent period"
-                  onChangeText={(period) => setMonthlyRent(parseInt(period))}
-                />
-                {/* rent period field end  */}
-              </View>
-            )}
-            {/* this is Land Surrounding field  */}
-            <Text style={[styles.mt_1, styles.secondary_color]}>
-              Land Surrounding
-            </Text>
-            <Input
-              placeholder="Land Surrounding"
-              onChangeText={(surronding) => setLandSurrounding(surronding)}
-            />
-            {/* Land Surrounding field end  */}
-            {/* this is Land soil description field  */}
-            <Text style={[styles.mt_1, styles.secondary_color]}>
-              Land Soil Description
-            </Text>
-            <Input
-              placeholder="Land Soil Description"
-              onChangeText={(surronding) => setLandSoilDescription(surronding)}
-            />
-            {/*Land soil description field end  */}
-            {/* this is Land soil description field  */}
-            <Text style={[styles.mt_1, styles.secondary_color]}>
-              Land Nature Description
-            </Text>
-            <Input
-              placeholder="Land Nature Description"
-              onChangeText={(land) => setLandNatureDescription(land)}
-            />
-            {/*Land soil description field end  */}
             <Layout style={[styles.center_container, styles.mt_1, styles.mb_1]}>
               <Button
                 size="medium"
