@@ -143,6 +143,9 @@ export const  styles = StyleSheet.create({
     mb_1:{
         marginBottom:"40%"
     },
+    ml_auto:{
+        marginLeft:'auto'
+    },
     ml_r_1:{
         marginLeft:"5%",
         marginRight:"5%"
@@ -158,7 +161,9 @@ export const  styles = StyleSheet.create({
     //////////////////////////////////////////////////////
 
     //////////"Here are all width containers"////////////
-
+    w_30:{
+        width:'30%'
+    },
     w_80:{
         width:"80%"
     },

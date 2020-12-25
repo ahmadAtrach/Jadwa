@@ -10,7 +10,8 @@ export type RootStackParamList = {
   AboutThePremises: undefined;
   NewProject: undefined;
   Productivity: undefined;
-  MarketAnalysis:undefined;
+  MarketAnalysis: undefined;
+  SalesForecast:Object;
 };
 
 export type BottomTabParamList = {

@@ -6,7 +6,6 @@ import {
   Input,
   Text,
   Layout,
-  Datepicker,
   Icon,
   Divider,
   List,
@@ -28,10 +27,7 @@ const data = new Array(1).fill({
 const StarIcon = (props: any) => <Icon {...props} name="arrow-forward" />;
 function Productivity({
   navigation,
-}: StackScreenProps<RootStackParamList, "MarketAnalysis">) {
-  function onPressLearnMore() {
-    navigation.navigate("MarketAnalysis");
-  }
+}: StackScreenProps<RootStackParamList, "SalesForecast">) {
   const renderItem = ({ item, index }: any) => (
     <ListItem
       key={index}
@@ -41,7 +37,7 @@ function Productivity({
     />
   );
   const pro_type = ["Liter", "Kg", "G", "Ton", "Head", "Piece"];
-  let other_income = {
+  let productivity = {
     number_of_beehivees: 0,
     p_unit: "",
     is_sales_seasonel: true,
@@ -97,6 +93,7 @@ function Productivity({
               Number of Beehives
             </Text>
             <Input
+              keyboardType='numeric'
               placeholder="Number of Beehives"
               onChangeText={(info) => setNumOfBeehives(parseInt(info))}
             />
@@ -108,7 +105,7 @@ function Productivity({
             <Select
               value={pro_types_Value}
               selectedIndex={proUnit}
-              onSelect={(index) => setProUnit(index)}
+              onSelect={(index:any) => setProUnit(index)}
             >
               {pro_type.map(renderOption)}
             </Select>
@@ -205,6 +202,15 @@ function Productivity({
       </KeyboardAvoidingView>
     </View>
   );
+  function onPressLearnMore() {
+    productivity.seasons=data;
+    productivity.p_unit=pro_types_Value;
+    productivity.other_items=otherItems;
+    productivity.number_of_beehivees=numOfBeehives;
+    navigation.navigate("SalesForecast", {
+      itemId: productivity,
+    });
+  }
   function deleteSeasonRow(index: any) {
     setSwitcherData(true);
     data.splice(index, 1);
